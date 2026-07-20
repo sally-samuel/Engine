@@ -48,7 +48,7 @@
   <body>
     <div id="header-placeholder"></div>
     <script>
-      fetch("../components/header.html?v=" + Date.now())
+      fetch("components/header.html?v=" + Date.now())
         .then((r) => r.text())
         .then((h) => {
           document.getElementById("header-placeholder").innerHTML = h;
@@ -85,7 +85,7 @@
         <div class="wwd-service-row">
           <div class="wwd-img">
             <img
-              src="../images/Shefa-Engineering-Marine-ship.jpg"
+              src="images/Shefa-Engineering-Marine-ship.jpg"
               alt="Marine"
             />
           </div>
@@ -127,7 +127,7 @@
         <div class="wwd-service-row" style="margin-top: 4px">
           <div class="wwd-img">
             <img
-              src="../images/Shefa-Engineering-Drilling-2-1.jpg"
+              src="images/Shefa-Engineering-Drilling-2-1.jpg"
               alt="Well Optimization"
             />
           </div>
@@ -170,7 +170,7 @@
         <div class="wwd-service-row" style="margin-top: 4px">
           <div class="wwd-img">
             <img
-              src="../images/Shefa-Engineering-Construction-2.jpg"
+              src="images/Shefa-Engineering-Construction-2.jpg"
               alt="Construction"
             />
           </div>
@@ -214,27 +214,29 @@
         <a href="contact.html" class="btn btn-primary">Contact Us</a>
       </div>
       
- <div class="partners-bar">
+ 
+      <!-- PARTNERS -->
+      <div class="partners-bar">
         <h2 class="partners-title">Our Partners</h2>
         <div class="partners-track">
           <div class="partners-row">
-            <img class="partner-logo" src="../images/Fonzo.png" alt="Fonzo" />
-            <img class="partner-logo" src="../images/Servest.png" alt="Servest" />
-            <img class="partner-logo" src="../images/Underwater.png" alt="Underwater" />
-            <img class="partner-logo" src="../images/ades-logo.png" alt="ADES" />
-            <img class="partner-logo" src="../images/nesr-logo.png" alt="NESR" />
-            <img class="partner-logo" src="../images/DUN-Bradstreet.png" alt="Dun &amp; Bradstreet" style="height: 52px" />
-            <img class="partner-logo" src="../images/logo-111w.webp" alt="Partner" style="height: 52px" />
+            <img class="partner-logo" src="./images/Fonzo.png" alt="Fonzo" />
+            <img class="partner-logo" src="./images/Servest.png" alt="Servest" />
+            <img class="partner-logo" src="./images/Underwater.png" alt="Underwater" />
+            <img class="partner-logo" src="./images/ades-logo.png" alt="ADES" />
+            <img class="partner-logo" src="./images/nesr-logo.png" alt="NESR" />
+            <img class="partner-logo" src="./images/DUN-Bradstreet.png" alt="Dun &amp; Bradstreet" style="height: 52px" />
+            <img class="partner-logo" src="./images/logo-111w.webp" alt="Partner" style="height: 52px" />
           </div>
           <!-- loop -->
           <div class="partners-row" aria-hidden="true">
-            <img class="partner-logo" src="../images/Fonzo.png" alt="" />
-            <img class="partner-logo" src="../images/Servest.png" alt="" />
-            <img class="partner-logo" src="../images/Underwater.png" alt="" />
-            <img class="partner-logo" src="../images/ades-logo.png" alt="" />
-            <img class="partner-logo" src="../images/nesr-logo.png" alt="" />
-            <img class="partner-logo" src="../images/DUN-Bradstreet.png" alt="" style="height: 52px" />
-            <img class="partner-logo" src="../images/logo-111w.webp" alt="" style="height: 52px" />
+            <img class="partner-logo" src="./images/Fonzo.png" alt="" />
+            <img class="partner-logo" src="./images/Servest.png" alt="" />
+            <img class="partner-logo" src="./images/Underwater.png" alt="" />
+            <img class="partner-logo" src="./images/ades-logo.png" alt="" />
+            <img class="partner-logo" src="./images/nesr-logo.png" alt="" />
+            <img class="partner-logo" src="./images/DUN-Bradstreet.png" alt="" style="height: 52px" />
+            <img class="partner-logo" src="./images/logo-111w.webp" alt="" style="height: 52px" />
           </div>
         </div>
       </div>
@@ -242,14 +244,14 @@
 
     <div id="footer-placeholder"></div>
     <script>
-      fetch("../components/footer.html?v=" + Date.now())
+      fetch("components/footer.html?v=" + Date.now())
         .then((r) => r.text())
         .then((h) => {
           document.getElementById("footer-placeholder").innerHTML = h;
         });
     </script>
     <script>
-      fetch("../components/script.html?v=" + Date.now())
+      fetch("components/script.html?v=" + Date.now())
         .then((r) => r.text())
         .then((h) => {
           const s = document.createElement("div");
