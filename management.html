@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description"
+    content="Meet the experienced leadership team behind Shefa Engineering Limited. Industry experts driving oilfield innovation in Nigeria." />
+  <meta name="keywords" content="Shefa Engineering team, leadership, oil industry experts Nigeria" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Leadership Team - Shefa Engineering" />
+  <meta property="og:description"
+    content="Meet the experienced leadership team behind Shefa Engineering Limited. Industry experts driving oilfield innovation in Nigeria." />
+  <meta property="og:image"
+    content="https://shefaengineering.com/wp-content/uploads/2022/10/Shefa-Engineering-Drilling-6.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leadership Team - Shefa Engineering" />
+  <meta name="twitter:description"
+    content="Meet the experienced leadership team behind Shefa Engineering Limited. Industry experts driving oilfield innovation in Nigeria." />
+  <link rel="canonical" href="https://shefaengineering.com/management.html" />
+  <title>Management - Shefa Engineering</title>
+ <link rel="icon" type="image/png" sizes="32x32" href="./images/Shefa-Engineering-Logo-High-Res.png">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/management.css" />
+
+  <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Shefa Engineering Limited",
+        "url": "https://shefaengineering.com",
+        "logo": "https://shefaengineering.com/logo.png",
+        "description": "Leading indigenous oilfield services company in Nigeria providing drilling, marine solutions, EPC, and facility operations.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "19B Ilabere Street, Ikoyi",
+          "addressLocality": "Lagos",
+          "addressCountry": "NG"
+        },
+        "telephone": "+234-906-289-2870",
+        "email": "info@shefaengineering.com",
+        "sameAs": [
+          "https://www.linkedin.com/company/shefa-engineering",
+          "https://www.facebook.com/shefaengineering"
+        ]
+      }
+    </script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("components/header.html?v=" + Date.now())
+      .then((r) => r.text())
+      .then((h) => {
+        document.getElementById("header-placeholder").innerHTML = h;
+      });
+  </script>
+
+  <main>
+    <div class="page-banner" style="
+          background-image: url(./images/Shefa-Engineering-Drilling-6.jpg);
+        ">
+      <div class="page-banner-content">
+        <div class="page-breadcrumb">Home / Management</div>
+        <h1>Key-Persons</h1>
+      </div>
+    </div>
+
+    <!-- ── Person Cards (generated dynamically from Sanity) ── -->
+    <div class="kp-grid" style="background: var(--offwhite); padding-top: 3rem"></div>
+
+    
+
+    <div class="partners-bar">
+        <h2 class="partners-title">Our Partners</h2>
+        <div class="partners-track">
+          <div class="partners-row">
+            <img class="partner-logo" src="./images/Fonzo.png" alt="Fonzo" />
+            <img class="partner-logo" src="./images/Servest.png" alt="Servest" />
+            <img class="partner-logo" src="./images/Underwater.png" alt="Underwater" />
+            <img class="partner-logo" src="./images/ades-logo.png" alt="ADES" />
+            <img class="partner-logo" src="./images/nesr-logo.png" alt="NESR" />
+            <img class="partner-logo" src="./images/DUN-Bradstreet.png" alt="Dun &amp; Bradstreet" style="height: 52px" />
+            <img class="partner-logo" src="./images/logo-111w.webp" alt="Partner" style="height: 52px" />
+          </div>
+          <!-- loop -->
+          <div class="partners-row" aria-hidden="true">
+            <img class="partner-logo" src="./images/Fonzo.png" alt="" />
+            <img class="partner-logo" src="./images/Servest.png" alt="" />
+            <img class="partner-logo" src="./images/Underwater.png" alt="" />
+            <img class="partner-logo" src="./images/ades-logo.png" alt="" />
+            <img class="partner-logo" src="./images/nesr-logo.png" alt="" />
+            <img class="partner-logo" src="./images/DUN-Bradstreet.png" alt="" style="height: 52px" />
+            <img class="partner-logo" src="./images/logo-111w.webp" alt="" style="height: 52px" />
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <script src="sanity-config/config.js"></script>
+  <script>
+    function urlForSanityImage(ref, opts = "") {
+      if (!ref) return null;
+      // ref looks like: image-<assetId>-<width>x<height>-<format>
+      const parts = ref.split("-");
+      const format = parts.pop(); // e.g. "jpg"
+      const dimensions = parts.pop(); // e.g. "1200x1600"
+      const assetId = parts.slice(1).join("-"); // drop leading "image"
+      return `https://cdn.sanity.io/images/wrtxyfej/production/${assetId}-${dimensions}.${format}${opts}`;
+    }
+
+    const PLACEHOLDER_ICON = `
+        <div class="person-photo-placeholder" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="#174caa" stroke-width="1.5" />
+            <path d="M4 20c0-4.418 3.582-7 8-7s8 2.582 8 7" stroke="#174caa" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>`;
+
+    async function fetchManagementData() {
+      try {
+        const query = `*[_type == "management"] | order(displayOrder asc)`;
+        const encodedQuery = encodeURIComponent(query);
+        const url = `https://${SANITY_CONFIG.projectId}.apicdn.sanity.io/v2025-06-01/data/query/production?query=${encodedQuery}`;
+
+        console.log("Fetching from:", url);
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+
+        const json = await res.json();
+        const result = json.result || [];
+
+        console.log("Sanity response:", json);
+
+        const grid = document.querySelector(".kp-grid");
+        grid.innerHTML = "";
+
+        if (result.length === 0) {
+          console.warn("No management records found in Sanity");
+          return;
+        }
+
+        result.forEach((person) => {
+          const slug =
+            person.slug && person.slug.current ? person.slug.current : "";
+
+          let photoUrl = null;
+          if (person.image && person.image.asset && person.image.asset._ref) {
+            photoUrl = urlForSanityImage(
+              person.image.asset._ref,
+              "?w=400&h=500&fit=crop",
+            );
+          }
+
+          const name = person.name || "Unknown";
+          const role = person.position || "";
+
+          const card = document.createElement(slug ? "a" : "div");
+          card.className = "person-card";
+          if (slug) {
+            card.href = `team-member.html?slug=${encodeURIComponent(slug)}`;
+          }
+          card.setAttribute("aria-label", `View ${name}'s profile`);
+          card.innerHTML = `
+              ${photoUrl
+              ? `<img src="${photoUrl}" alt="${name}" loading="lazy" />`
+              : PLACEHOLDER_ICON
+            }
+              <div class="person-info">
+                <div class="person-name">${name}</div>
+                <div class="person-role">${role}</div>
+              </div>
+            `;
+          grid.appendChild(card);
+        });
+
+        console.log("Management data loaded successfully");
+      } catch (error) {
+        console.error("Error fetching management data:", error);
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fetchManagementData);
+    } else {
+      fetchManagementData();
+    }
+  </script>
+
+  <script>
+    fetch("components/script.html?v=" + Date.now())
+      .then((r) => r.text())
+      .then((h) => {
+        const s = document.createElement("div");
+        s.innerHTML = h;
+        [...s.querySelectorAll("script")].forEach((el) =>
+          eval(el.textContent),
+        );
+      });
+  </script>
+  <script>
+    fetch('components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        const footerContainer = document.createElement('div');
+        footerContainer.innerHTML = data;
+        document.body.appendChild(footerContainer);
+      })
+      .catch(error => console.error('Failed to load footer:', error));
+  </script>
+</body>
+
+</html>

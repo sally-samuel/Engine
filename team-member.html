@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Leadership profile - Shefa Engineering Limited." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Shefa Engineering Limited" />
+  <title id="pageTitle">Team Member - Shefa Engineering</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/Shefa-Engineering-Logo-High-Res.png">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    .tm-wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .tm-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #174caa;
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .tm-back:hover {
+      text-decoration: underline;
+    }
+
+    .tm-header {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #e5e8ee;
+      margin-bottom: 2.5rem;
+    }
+
+    .tm-photo {
+      width: 220px;
+      height: 270px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 6px;
+      flex-shrink: 0;
+      background: #eef1f6;
+    }
+
+    .tm-meta {
+      flex: 1;
+      padding-top: 0.5rem;
+    }
+
+    .tm-name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #0e1f3d;
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+    }
+
+    .tm-role {
+      display: inline-block;
+      background: #174caa;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    .tm-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #174caa;
+      text-decoration: none;
+      border: 1.5px solid #174caa;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tm-linkedin:hover {
+      background: #174caa;
+      color: #fff;
+    }
+
+    .tm-body {
+      color: #3a3a4a;
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .tm-body p {
+      margin: 0 0 1.25rem;
+    }
+
+    .tm-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tm-state {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      color: #6b7280;
+      font-size: 1rem;
+    }
+
+    .tm-state a {
+      color: #174caa;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .tm-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .tm-photo {
+        width: 180px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("components/header.html?v=" + Date.now())
+      .then((r) => r.text())
+      .then((h) => {
+        document.getElementById("header-placeholder").innerHTML = h;
+      });
+  </script>
+
+  <main>
+    <div id="tmContent" class="tm-wrap">
+      <div class="tm-state">Loading profile…</div>
+    </div>
+  </main>
+<script>
+    fetch('components/footer.html')
+      .then(response => response.text())
+      .then(data => {
+        const footerContainer = document.createElement('div');
+        footerContainer.innerHTML = data;
+        document.body.appendChild(footerContainer);
+      })
+      .catch(error => console.error('Failed to load footer:', error));
+  </script>
+  <script>
+    fetch("components/script.html?v=" + Date.now())
+      .then((r) => r.text())
+      .then((h) => {
+        const s = document.createElement("div");
+        s.innerHTML = h;
+        [...s.querySelectorAll("script")].forEach((el) =>
+          eval(el.textContent),
+        );
+      });
+  </script>
+  <script src="sanity-config/config.js"></script>
+  <script>
+    function urlForSanityImage(ref, opts = '') {
+      if (!ref) return null;
+      // ref looks like: image-<assetId>-<width>x<height>-<format>
+      const parts = ref.split('-');
+      const format = parts.pop();
+      const dimensions = parts.pop();
+      const assetId = parts.slice(1).join('-');
+      return `https://cdn.sanity.io/images/wrtxyfej/production/${assetId}-${dimensions}.${format}${opts}`;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str || '';
+      return div.innerHTML;
+    }
+
+    function renderBio(bio) {
+      if (!bio) return '';
+      return bio
+        .split(/\n{2,}/)
+        .map((para) => `<p>${escapeHtml(para).replace(/\n/g, '<br>')}</p>`)
+        .join('');
+    }
+
+    function renderNotFound() {
+      document.getElementById('tmContent').innerHTML = `
+          <div class="tm-state">
+            <p>We couldn't find that profile.</p>
+            <p><a href="management.html">← Back to Key Persons</a></p>
+          </div>
+        `;
+    }
+
+    async function loadProfile() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        renderNotFound();
+        return;
+      }
+
+      try {
+        const query = `*[_type == "management" && slug.current == $slug][0]`;
+        const encodedQuery = encodeURIComponent(query);
+        const encodedParam = encodeURIComponent(JSON.stringify(slug));
+        const url = `https://${SANITY_CONFIG.projectId}.apicdn.sanity.io/v2025-06-01/data/query/production?query=${encodedQuery}&$slug=${encodedParam}`;
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+
+        const json = await res.json();
+        const person = json.result;
+
+        if (!person) {
+          renderNotFound();
+          return;
+        }
+
+        let photoUrl = '';
+        if (person.image && person.image.asset && person.image.asset._ref) {
+          const built = urlForSanityImage(person.image.asset._ref, '?w=600&h=750&fit=crop');
+          if (built) photoUrl = built;
+        }
+
+        const name = person.name || 'Unknown';
+        const role = person.position || '';
+
+        document.getElementById('pageTitle').textContent = `${name} - Shefa Engineering`;
+
+        document.getElementById('tmContent').innerHTML = `
+            <a class="tm-back" href="management.html">&larr; Back to Key Persons</a>
+            <div class="tm-header">
+              <img class="tm-photo" src="${photoUrl}" alt="${escapeHtml(name)}" />
+              <div class="tm-meta">
+                <div class="tm-name">${escapeHtml(name)}</div>
+                <div class="tm-role">${escapeHtml(role)}</div>
+                ${person.linkedin ? `<div><a class="tm-linkedin" href="${person.linkedin}" target="_blank" rel="noopener">View LinkedIn Profile</a></div>` : ''}
+              </div>
+            </div>
+            <div class="tm-body">${renderBio(person.bio) || '<p>No biography available yet.</p>'}</div>
+          `;
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+        renderNotFound();
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadProfile);
+    } else {
+      loadProfile();
+    }
+  </script>
+</body>
+
+</html>
